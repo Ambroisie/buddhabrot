@@ -14,7 +14,7 @@ void print_ppm(const struct image *image, FILE *f) {
         for (size_t j = 0; j < image->w; ++j) {
             if (j != 0)
                 fputc(' ', f);
-            const struct pixel *p = &image->buf[i * image->w + j];
+            const struct pixel *p = &image->buf[to_index(i, j, image)];
             fprintf(f, "%hhu %hhu %hhu", p->r, p->g, p->b);
         }
         fputc('\n', f);

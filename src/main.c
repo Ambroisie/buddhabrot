@@ -9,7 +9,7 @@
 static void fill_image(struct image *image) {
     for (size_t i = 0; i < image->h; ++i) {
         for (size_t j = 0; j < image->w; ++j) {
-            struct pixel *p = &image->buf[i * image->w + j];
+            struct pixel *p = &image->buf[to_index(i, j, image)];
             p->r = 255 * i / image->h;
             p->g = 255 * j / image->w;
             p->g = 255 * (i + j) / (image->h + image->w);
