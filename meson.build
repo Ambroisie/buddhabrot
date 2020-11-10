@@ -11,6 +11,7 @@ project(
 sources = [
   'src/image.c',
   'src/main.c',
+  'src/mandelbrot.c',
   'src/options.c',
   'src/ppm.c',
 ]
