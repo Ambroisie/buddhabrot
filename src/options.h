@@ -8,6 +8,7 @@ struct options {
     FILE *output;
     size_t w;
     size_t h;
+    size_t max_iter;
 };
 
 struct options parse_options(int *argc, char **argv[]);

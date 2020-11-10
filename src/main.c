@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     if (!image)
         err(EXIT_FAILURE, "could not allocate image");
 
-    mandelbrot(image, 100);
+    mandelbrot(image, opt.max_iter);
     print_ppm(image, opt.output);
 
     fclose(opt.output);

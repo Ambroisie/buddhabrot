@@ -9,16 +9,21 @@ struct options parse_options(int *argc, char **argv[]) {
         .output = stdout,
         .w = 960,
         .h = 540,
+        .max_iter = 100,
     };
 
     opterr = 0; // Deactivate error message from `getopt`
 
     int opt;
-    while ((opt = getopt(*argc, *argv, "h:o:w:")) != -1) {
+    while ((opt = getopt(*argc, *argv, "h:m:o:w:")) != -1) {
         switch (opt) {
         case 'h':
             if (!sscanf(optarg, "%zu", &opts.h))
                 errx(EXIT_FAILURE, "could not parse height");
+            break;
+        case 'm':
+            if (!sscanf(optarg, "%zu", &opts.max_iter))
+                errx(EXIT_FAILURE, "could not parse max_iter");
             break;
         case 'o':
             if (!freopen(optarg, "w", opts.output))
@@ -29,7 +34,8 @@ struct options parse_options(int *argc, char **argv[]) {
                 errx(EXIT_FAILURE, "could not parse width");
             break;
         default:
-            fprintf(stderr, "Usage: %s [-o FILE] [-h HEIGHT] [-w WIDTH]\n",
+            fprintf(stderr,
+                    "Usage: %s [-o FILE] [-m MAX_ITER] [-h HEIGHT] [-w WIDTH]\n",
                     (*argv)[0]);
             exit(EXIT_FAILURE);
         }
