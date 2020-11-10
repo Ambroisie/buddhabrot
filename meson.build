@@ -9,7 +9,9 @@ project(
 )
 
 sources = [
+  'src/image.c',
   'src/main.c',
+  'src/ppm.c',
 ]
 
 executable(
