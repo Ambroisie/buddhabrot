@@ -11,10 +11,12 @@ project(
 sources = [
   'src/image.c',
   'src/main.c',
+  'src/options.c',
   'src/ppm.c',
 ]
 
 executable(
   'buddhabrot',
   sources : sources,
+  c_args : '-D_XOPEN_SOURCE',
 )

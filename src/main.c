@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "image.h"
+#include "options.h"
 #include "ppm.h"
 
 static void fill_image(struct image *image) {
@@ -16,13 +17,17 @@ static void fill_image(struct image *image) {
     }
 }
 
-int main(void) {
-    struct image *image = create_image(960, 540);
+int main(int argc, char *argv[]) {
+    struct options opt = parse_options(&argc, &argv);
+
+    struct image *image = create_image(opt.w, opt.h);
     if (!image)
         err(EXIT_FAILURE, "could not allocate image");
 
     fill_image(image);
-    print_ppm(image, stdout);
+    print_ppm(image, opt.output);
+
+    fclose(opt.output);
     destroy_image(image);
 
     return EXIT_SUCCESS;
