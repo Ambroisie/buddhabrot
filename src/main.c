@@ -4,6 +4,7 @@
 
 #include "buddhabrot.h"
 #include "image.h"
+#include "buddhabrot.h"
 #include "mandelbrot.h"
 #include "options.h"
 #include "ppm.h"
@@ -17,7 +18,7 @@ int main(int argc, char *argv[]) {
 
     switch (opt.render) {
     case BUDDHABROT:
-        buddhabrot(image, opt.max_iter);
+        buddhabrot(image, opt.max_iter, 10000); // FIXME: allow user option
         break;
     case MANDELBROT:
         mandelbrot(image, opt.max_iter);

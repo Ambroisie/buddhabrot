@@ -5,6 +5,6 @@
 
 struct image; // Forward declaration
 
-void buddhabrot(struct image *i, size_t max_iter);
+void buddhabrot(struct image *i, size_t max_iter, size_t repeats);
 
 #endif /* !BUDDHABROT_H */
