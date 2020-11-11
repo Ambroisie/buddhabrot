@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "buddhabrot.h"
 #include "image.h"
 #include "mandelbrot.h"
 #include "options.h"
@@ -14,7 +15,15 @@ int main(int argc, char *argv[]) {
     if (!image)
         err(EXIT_FAILURE, "could not allocate image");
 
-    mandelbrot(image, opt.max_iter);
+    switch (opt.render) {
+    case BUDDHABROT:
+        buddhabrot(image, opt.max_iter);
+        break;
+    case MANDELBROT:
+        mandelbrot(image, opt.max_iter);
+        break;
+    }
+
     print_ppm(image, opt.output);
 
     fclose(opt.output);
