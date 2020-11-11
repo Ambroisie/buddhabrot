@@ -9,6 +9,7 @@ project(
 )
 
 sources = [
+  'src/buddhabrot.c',
   'src/image.c',
   'src/main.c',
   'src/mandelbrot.c',
