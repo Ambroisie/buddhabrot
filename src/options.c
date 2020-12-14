@@ -56,7 +56,7 @@ struct options parse_options(int *argc, char **argv[]) {
         default:
             fprintf(stderr,
                     "Usage: %s "
-                    "[-o FILE] [-i MAX_ITER] [-h HEIGHT] [-w WIDTH] "
+                    "[-o FILE] [-m MAX_ITER] [-h HEIGHT] [-w WIDTH] "
                     "[-r <buddhabrot|mandelbrot>]\n",
                     (*argv)[0]);
             exit(EXIT_FAILURE);
